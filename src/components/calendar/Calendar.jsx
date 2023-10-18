@@ -4,6 +4,10 @@ import './calendar.scss'
 import axios from 'axios'
 import { api_key } from '../../config/api_key'
 
+import { db } from '../../config/firebase'
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { auth } from '../../config/firebase'
+
 export default function Calendar() {
 
     const startDate = new Date();
@@ -23,7 +27,30 @@ export default function Calendar() {
 
     const [showsToAir, setShowsToAir] = useState([])
 
-    const getShowToAir = async () => {
+    const followedShowsCollection = collection(db, "followed_shows")
+
+    const getFollowedShows = async () => {
+        try{
+            let shows = []
+            const q = query(followedShowsCollection, where("id_user", "==", auth?.currentUser?.uid))
+            const followedShows = await getDocs(q)
+            const data = followedShows.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            console.log(data)
+            if(data.length !== 0) {
+                for (const show of data) {
+                    const showNew = await axios.get(`https://api.themoviedb.org/3/tv/${show.id_show}?api_key=${api_key}`)
+                    shows = shows.concat(showNew.data)
+                }
+                setShowsToAir(shows)
+            }
+            
+        }
+        catch(error) {
+            console.error(error)
+        }
+    }
+
+    const getShowsToAir = async () => {
         try {
             let shows = []
             await axios.get(`https://api.themoviedb.org/3/discover/tv?first_air_date.gte=${startDate.toISOString().substring(0, 10)}&first_air_date.lte=${endDate.toISOString().substring(0, 10)}&language=en-US&page=1&api_key=${api_key}&popularity=revenue.desc`)
@@ -43,7 +70,17 @@ export default function Calendar() {
     }
 
     useEffect(() => {
-        getShowToAir()
+        auth.onAuthStateChanged(function(user) {
+            if (user) {
+                getFollowedShows()
+              // User is signed in.
+            } else {
+                console.error("User not signed in")
+              // No user is signed in.
+            }
+        });
+        
+        //getShowsToAir()
     }, [])
 
     return(

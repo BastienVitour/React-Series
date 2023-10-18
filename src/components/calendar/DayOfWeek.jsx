@@ -21,11 +21,12 @@ export default function DayOfWeek({ date, shows }) {
             <hr />
             {
                 showsToAir.map((show) => {
-                    console.log(show)
                     return(
-                        <div>
+                        <div className="show-next-episode">
+                            <h4>{show.name}</h4>
                             <img src={'https://image.tmdb.org/t/p/original'+show.backdrop_path} alt="Poster of the show" width="125px" />
-                            <p>{show.name}</p>
+                            <p>{show.next_episode_to_air.name}</p>
+                            <hr />
                         </div>
                     )
                 })
