@@ -1,0 +1,22 @@
+.main-page-calendar {
+    color: whitesmoke;
+
+    .list-days {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 25px;
+
+        .day-div {
+            background-color: whitesmoke;
+            color: #1D233B;
+            width: 12%;
+            border-radius: 12px;
+
+            hr {
+                color: #1D233B;
+                width: 75%;
+            }
+        }
+    }
+}

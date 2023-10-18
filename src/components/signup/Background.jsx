@@ -10,7 +10,7 @@ export default function Background() {
         try {
             let results = []
             for (let i = 1; i < 7; i++) {
-                const response = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${i}&api_key=${api_key}`)
+                const response = await axios.get(`https://api.themoviedb.org/3/tv/popular?language=en-US&page=${i}&api_key=${api_key}`)
                 results = results.concat(response.data.results)
             }
             setShowsBg(results)
