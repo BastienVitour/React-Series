@@ -2,7 +2,10 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { auth } from "../../config/firebase"
 import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
+import { api_key } from "../../config/api_key"
+import axios from "axios"
 import './signup.scss'
+import Background from "./Background"
 
 export default function Inscription() {
 
@@ -11,6 +14,8 @@ export default function Inscription() {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [error, setError] = useState("")
+
+    
 
     const signUp = async () => {
         if(username !== "" && email !== "" && password !== "" && confirmPassword !== "") {
@@ -45,6 +50,7 @@ export default function Inscription() {
         }
     }
 
+
     useEffect(() => {
         console.log(auth?.currentUser?.displayName)
     }, [email])
@@ -66,6 +72,9 @@ export default function Inscription() {
             </div>
             
             <button onClick={logout}>Se déconnecter</button>
+            
+            <Background />
+            
         </div>
 
     )
