@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { api_key } from "../../config/api_key";
 import ShowList from "./ShowList";
+import Comment from './Comment';
 
 export default function Show(){
 
@@ -23,6 +24,7 @@ export default function Show(){
                     seasons = seasons.concat(toAdd.data)
                 }
             }
+            console.log(response.data)
             setSeasons(seasons)
             setShow(response.data);
         })
@@ -33,6 +35,7 @@ export default function Show(){
         getShow()
     }, []);
 
+    // const { author, text, date } = this.props;
     return (
 
     
@@ -64,6 +67,17 @@ export default function Show(){
                 </div>
             )
         })}
+
+
+        <div className="post">
+         
+        </div>
+
+        {/* <div className="comment">
+            <div className="comment-author">{author}</div>
+            <div className="comment-text">{text}</div>
+            <div className="comment-date">{date}</div>
+        </div> */}
 
 
     </div>
