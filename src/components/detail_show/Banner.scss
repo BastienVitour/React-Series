@@ -1,0 +1,22 @@
+.banner {
+    transition-duration: 900ms;
+    height: 500px;
+    z-index: -1;
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+
+}
+
+.banniere{
+    text-align: center;
+    margin: auto;
+    height: 500px;
+    border-radius: 12px;
+    width: 75%;
+    background: linear-gradient(to bottom, transparent, #1d233b)
+}
+
+.banniere div h1 {
+    margin: -7vh;
+}
