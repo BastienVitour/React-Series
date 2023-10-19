@@ -1,0 +1,18 @@
+$nice-blue: rgb(31, 107, 229);
+$other-blue: #388CFC;
+
+.custom-button {
+    border: 1px solid $nice-blue;
+    background-color: $nice-blue;
+    color: whitesmoke;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    border-color: $other-blue;
+    background-color: $other-blue;
+    transition: 0.25s;
+}

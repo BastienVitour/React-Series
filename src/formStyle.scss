@@ -26,44 +26,6 @@ $other-blue: #388CFC;
             color: red;
         }
 
-        .input-log-req-pro {
-            padding: 10px 10px 4px 10px;
-            margin-bottom: 10px;
-            font-size: 1.25em;
-            background-color: inherit;
-            border: none;
-            border-bottom: 1px solid $other-blue;
-            color: whitesmoke
-        }
-
-        .input-log-req-pro:last-of-type {
-            margin-bottom: 20px;
-        }
-
-        .input-log-req-pro:focus {
-            outline: none;
-        }
-
-        .input-log-req-pro::placeholder {
-            color: rgb(176, 176, 176)
-        }
-
-        .submit-log-req-pro {
-            border: 1px solid $nice-blue;
-            background-color: $nice-blue;
-            color: whitesmoke;
-            padding: 10px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .submit:hover {
-            border-color: $other-blue;
-            background-color: $other-blue;
-            transition: 0.25s;
-        }
-
         .link {
             margin-top: 15px;
             color: whitesmoke

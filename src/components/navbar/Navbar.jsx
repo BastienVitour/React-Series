@@ -1,15 +1,21 @@
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link, useNavigate } from 'react-router-dom'
 import './navbar.scss'
 import { HouseDoorFill, CalendarEventFill, Search, PersonCircle } from 'react-bootstrap-icons'
 import { useEffect, useState } from 'react'
 import { auth } from "../../config/firebase"
 import { signOut } from "firebase/auth"
+import CustomInput from "../formComponents/CustomInput"
+import CustomButton from "../formComponents/CustomButton"
+import axios from 'axios'
+import { api_key } from '../../config/api_key'
 
 export default function Navbar() {
 
     let location = useLocation()
+    const navigate = useNavigate()
 
     const [logged, setLogged] = useState()
+    const [search, setSearch] = useState("")
 
     const logout = async () => {
         try {
@@ -18,6 +24,15 @@ export default function Navbar() {
         catch(error) {
             console.error(error)
         }
+    }
+
+    const searchShows = async () => {
+        // await axios.get(`https://api.themoviedb.org/3/search/tv?query=${search}?&include_adult=false&language=en-US&page=1&api_key=${api_key}`)
+        // .then((res) => {
+            navigate(`/search?search=${search}`)
+            
+        // })
+        // .catch((error) => console.error(error))
     }
 
     useEffect(() => {
@@ -54,6 +69,11 @@ export default function Navbar() {
                     <span className='nav-title'>Profil</span>
                 </Link>
             </div>
+
+            {/* <div className='search-bar'>
+                <CustomInput placeholder={'Rechercher une série'} type={'text'} functionToLaunch={setSearch}  />
+                <CustomButton textContent={'Rechercher'} functionToLaunch={searchShows} />
+            </div> */}
             
             {
                 logged ?
