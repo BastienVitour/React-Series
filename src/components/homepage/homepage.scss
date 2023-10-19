@@ -13,8 +13,7 @@
 .single-line {
   text-transform: uppercase;
   text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  
   overflow: hidden;
   margin: 0 auto;
   text-decoration: none;
@@ -44,8 +43,6 @@
     border-radius: 7px;
     height: auto;
     width: 100%;
-
-
   }
 }
 

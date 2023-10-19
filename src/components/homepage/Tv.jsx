@@ -24,7 +24,9 @@ export default function Tv({tv, featured}) {
 : ( <div className="single-tv">
      <a href={"/show/"+tv.id} className="tv-link" aria-label={`View details for ${tv.name}`}>
          <img src={'https://image.tmdb.org/t/p/w500'+tv.poster_path} alt="TV poster" />&nbsp;
-           <p className='single-line'>{tv.name} - {tv.vote_average} ⭐️</p>
+           <div>
+            <p className='single-line'>{tv.name} - {tv.vote_average} ⭐️</p>
+            </div>
      </a>
  </div>
  )

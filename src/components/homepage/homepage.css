@@ -12,8 +12,6 @@
 .single-line {
   text-transform: uppercase;
   text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
   margin: 0 auto;
   text-decoration: none;
