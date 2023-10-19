@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { api_key } from "../../config/api_key";
 import ShowList from "./ShowList";
-// import Comment from './Comment';
+import Comment from './Comment';
 
 export default function Show(){
 
@@ -13,6 +13,7 @@ export default function Show(){
 
     const [show, setShow] = useState({});
     const [seasons, setSeasons] = useState([]);
+    const [credits, setCredits] = useState([]);
 
     const getShow = async () => {
         await axios.get(`https://api.themoviedb.org/3/tv/${id}?language=en-US&api_key=${api_key}`)
@@ -24,24 +25,38 @@ export default function Show(){
                     seasons = seasons.concat(toAdd.data)
                 }
             }
-            console.log(response.data)
-            setSeasons(seasons)
+            const credit = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?language=en-US&api_key=${api_key}`)
+            setCredits(credit.data.cast)
+            setSeasons(seasons);
+            console.log(response.data);
             setShow(response.data);
         })
         .catch((error) => console.error(error));
+    }
+    
+
+    const getCredits = async () => {
+        await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?language=en-US&api_key=${api_key}`)
+        .then(async (response) => {
+            setSeasons(seasons);
+            setShow(response.data);
+        })
     }
 
     useEffect(() => {
         getShow()
     }, []);
 
+    useEffect(() => {
+        getCredits()
+    }, []);
+
     // const { author, text, date } = this.props;
     return (
 
-    
     <div className="container">
 
-        <Banner show={show}/>
+        <Banner show={show} cast={credits}/>
 
         <h1 className="TitreNextEp">Next Episode</h1>
 
@@ -53,7 +68,6 @@ export default function Show(){
 
             </div>
         }
-
         
         {seasons.map((season) => {
             return(
@@ -70,14 +84,11 @@ export default function Show(){
 
 
         <div className="post">
-         
+            <h2>Titre du Post</h2>
+            <Comment author="John" text="Super article !" date="2023-10-19" />
+            <Comment author="Jane" text="J'adore ce contenu !" date="2023-10-19" />
+            {/* Vous pouvez ajouter autant de Comment que nécessaire */}
         </div>
-
-        {/* <div className="comment">
-            <div className="comment-author">{author}</div>
-            <div className="comment-text">{text}</div>
-            <div className="comment-date">{date}</div>
-        </div> */}
 
 
     </div>
