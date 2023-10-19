@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Syne&display=swap');
 body {
   margin: 0;
   padding: 0;
@@ -8,9 +10,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #1D233B;
+  letter-spacing: 1px;
+  padding-left: 50px;
+  padding-right: 50Px;
+
+  a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 14px;
+  }
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Syne', sans-serif;
 }

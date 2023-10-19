@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1D233B;
+  letter-spacing: 1px;
+  padding-left: 50px;
+  padding-right: 50Px;
+}
+body a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+code {
+  font-family: "Syne", sans-serif;
+}/*# sourceMappingURL=index.css.map */

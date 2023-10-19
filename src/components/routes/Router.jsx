@@ -6,6 +6,7 @@ import Calendar from "../calendar/Calendar"
 import Profile from "../profile/Profile"
 // import Notifications from "../notifications/Notifications"
 import Show from "../detail_show/DetailShow";
+import Homepage from "../homepage/Homepage"
 
 export default function Router() {
 
@@ -18,6 +19,7 @@ export default function Router() {
             <Route path="/profile" element={<Profile />} />
             {/* <Route path="/notifications" element={<Notifications />} /> */}
             <Route path="/show/:id" element={<Show />} />
+            <Route path="/" element={<Homepage />} />
         </Routes>
 
     )
