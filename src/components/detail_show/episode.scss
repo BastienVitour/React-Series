@@ -15,10 +15,23 @@
         object-fit : cover;
     }
 }
+
+.vignette{
+    position: relative;
+}
+
+.vignette span{
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1rem;
+    background: rgb(0, 0, 0);
+    color: whitesmoke;
+    padding: 3px;
+    width: 10;
+    border-radius: 5px;
+}
+
 .imgEp {
-    // display: inline-block;
-    // width: 225px !important;
-    
     object-fit : cover;
     background-size: cover;
     border-radius: 12px;
@@ -29,9 +42,8 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-
-    
 }
+
 .single-line{
         text-transform: uppercase;
         text-align: left;

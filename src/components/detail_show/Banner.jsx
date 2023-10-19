@@ -1,4 +1,5 @@
 import "./Banner.scss";
+
 export default function Banner({show}){
 
     return (

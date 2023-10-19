@@ -1,9 +1,12 @@
 import './episode.scss'
 
-const ShowItem = ({ episode }) => {
+const ShowItem = ({ episode, }) => {
     return (
         <div>
-            <img src={'https://image.tmdb.org/t/p/w500'+episode.still_path} className="imgEp" alt="Show poster" />
+            <div className="vignette">
+                <img src={'https://image.tmdb.org/t/p/w500'+episode.still_path} className="imgEp" alt="Show poster" />
+                <span>Episode: {episode.episode_number}</span>
+            </div>
             <p className="single-line">{episode.name}</p>
         </div>
     )
