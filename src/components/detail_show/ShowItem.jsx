@@ -1,26 +1,10 @@
-import styled from "styled-components";
+import './episode.scss'
 
-const ItemContainer = styled.div `
-    width : 225px;
-    height : 120px;
-    background-color : #0b0b0b;
-    margin-right : 5px;
-    overflow : hidden;
-    cursor : pointer;
-    color : white;
-`
-
-const MainImage = styled.Image`
-    width : 100%;
-    height : 100%;
-    objectif-fit : cover;
-`
-
-const ShowItem = ({ index }) => {
+const ShowItem = ({ episode }) => {
     return (
-        <ItemContainer >
-            <MainImage />
-        </ItemContainer>
+            // <div className="item-container">
+                <img src={'https://image.tmdb.org/t/p/original'+episode.still_path} className="imgEp" alt="Show poster" />
+            // </div>
     )
 }
 export default ShowItem

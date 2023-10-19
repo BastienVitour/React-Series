@@ -42,7 +42,7 @@ export default function Show(){
 
         {show.next_episode_to_air !== null &&  <img src={'https://image.tmdb.org/t/p/original'+show.backdrop_path} className="NextEp" alt="Show poster"/>}
 
-        <ShowList />
+        
         {seasons.map((season) => {
                 return(
                     <div className="season">
@@ -50,8 +50,9 @@ export default function Show(){
                         <h3>{season.name}</h3>
 
                         <div className="episodes">
+                            <ShowList season={season} />
 
-                            {season.episodes.map((episode) => {
+                            {/* {season.episodes.map((episode) => {
                                 console.log(episode);
                                 if(episode.runtime !== null) {
                                     return(
@@ -63,7 +64,7 @@ export default function Show(){
                                     </div>
                                 )
                                 }
-                            })}
+                            })} */}
                         </div>
                     </div>
                 )

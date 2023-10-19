@@ -1,63 +1,46 @@
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@material-ui/icons";
 import ShowItem from "./ShowItem";
-import styled from "styled-components";
+import './showList.scss'
+import { useEffect, useRef, useState } from "react";
 
-const ListContainer = styled.div` 
-    largeur : 100 % ; 
-    marge supérieure : 10 px ; 
-` 
 
-const Wrapper = styled.div` 
-    position : relative ; 
-    .sliderArrow { 
-        largeur : 50 px ; 
-        hauteur : 100 % ; 
-        couleur d'arrière-plan : RVB (22, 22, 22, 0,5) ; 
-        Couleur blanche; 
-        position : absolue ; 
-        indice z : 99 ; 
-        haut : 0 ; 
-        bas : 0 ; 
-        marge : auto ; 
-        curseur : pointeur ;
-&.gauche { 
-            gauche : 0; 
+const ShowList = ({ season }) => {
+
+    const [slideNumber, setSlideNumber] = useState(0);
+    const listRef = useRef();
+
+    const handleClick = (direction) => {
+        let distance = listRef.current.getBoundingClientRect().x - 50;
+        if (direction === "left" && slideNumber > 0) {
+            setSlideNumber(slideNumber - 1);
+            listRef.current.style.transform = `translateX(${460 + distance}px)`;
         }
-&.droit { 
-            droite : 0 ; 
-        } 
-    } 
-`
+        if (direction === "right" && slideNumber < 5) {
+            setSlideNumber(slideNumber + 1);
+            listRef.current.style.transform = `translateX(${-460 + distance}px)`;
+        }
+    }
 
-const ShowContainer = styled.div` 
-    margin-left : 50px ; 
-    affichage : flexible ; 
-    marge supérieure : 10 px ; 
-    largeur : contenu maximum ; 
-    transformer : traduireX(0px); 
-    transition : tous les 1 sont faciles ; 
-`
-
-const ShowList = () => {
+    useEffect(() => {
+        console.log(season)
+    }, [])
     return (
-        <ListContainer>
-            <Wrapper>
-                <ArrowBackIosOutlined className="sliderArrow left"/>
-                <ShowContainer>
-                    <ShowItem index={ 0 } />
-                    <ShowItem index={ 1 } />
-                    <ShowItem index={ 2 } />
-                    <ShowItem index={ 3 } />
-                    <ShowItem index={ 4 } />
-                    <ShowItem index={ 5 } />
-                    <ShowItem index={ 6 } />
-                    <ShowItem index={ 7 } />
-                    <ShowItem index={ 8 } />
-                    <ShowItem index={ 9 } />
-                </ShowContainer>
-                <ArrowForwardIosOutlined className="sliderArrow right"/>
-            </Wrapper>
-        </ListContainer>
+        // <div className="list-container">
+            <div>
+                {/* <ArrowBackIosOutlined className="sliderArrow left" onClick={() => handleClick("left")}/> */}
+                <div className="show-container" ref={listRef}>
+                    { (season !== null && season !== undefined) &&
+                        season.episodes.map((episode) => {
+                            return(
+                                <ShowItem episode={episode} />
+                            )
+                        })
+                    }
+                
+                </div>
+                {/* <ArrowForwardIosOutlined className="sliderArrow right" onClick={() => handleClick("right")} /> */}
+            </div>
+        // </div>
     )}
 
     export default ShowList
