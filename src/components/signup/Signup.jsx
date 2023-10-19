@@ -2,8 +2,6 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { auth } from "../../config/firebase"
 import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
-import { api_key } from "../../config/api_key"
-import axios from "axios"
 import './signup.scss'
 import Background from "./Background"
 
