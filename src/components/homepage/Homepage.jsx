@@ -54,7 +54,7 @@ console.log(tv[randomIndex])
     <>
 
       <Tv tv={tvRandom} featured={true}/>
-    
+
     <div className="homepagetv">
     {tv.map((tv) => ( // this component maps the state TV and return the TV component
       <Tv tv={tv} key={tv.id} />
