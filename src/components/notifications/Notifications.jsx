@@ -1,35 +1,24 @@
-import { useEffect, useState } from 'react'
-import DayOfWeek from './DayOfWeek'
-import './calendar.scss'
+import './notifications.scss'
+import { BellFill } from 'react-bootstrap-icons'
 import axios from 'axios'
 import { api_key } from '../../config/api_key'
+import { useState, useEffect } from 'react'
 
 import { db } from '../../config/firebase'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { auth } from '../../config/firebase'
+import NotifsDiv from './NotifsDiv'
 
-export default function Calendar() {
-
-    const currentDate = new Date()
-    const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
-    const dates = [currentDate]
-    for (let i = 1; i < 7; i++) {
-        let dateToAdd = new Date()
-        dates.push(new Date(dateToAdd.setDate(currentDate.getDate() + i)))
-    }
-
-    const daysOfWeek = []
-    for (const date of dates) {
-        console.log(date)
-        daysOfWeek.push({
-            "name": days[date.getDay()],
-            "date": date
-        })
-    }
+export default function Notifications() {
 
     const [showsToAir, setShowsToAir] = useState([])
+    const [listDisplay, setListDisplay] = useState(false)
 
     const followedShowsCollection = collection(db, "followed_shows")
+
+    const today = new Date()
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
 
     const getFollowedShows = async () => {
         try{
@@ -41,7 +30,10 @@ export default function Calendar() {
             if(data.length !== 0) {
                 for (const show of data) {
                     const showNew = await axios.get(`https://api.themoviedb.org/3/tv/${show.id_show}?api_key=${api_key}`)
-                    shows = shows.concat(showNew.data)
+                    const showIsValid = showNew.data.next_episode_to_air.air_date == tomorrow.toISOString().substring(0, 10) || showNew.data.next_episode_to_air.air_date == today.toISOString().substring(0, 10)
+                    if(showNew.data.next_episode_to_air !== null && showIsValid) {
+                        shows = shows.concat(showNew.data)
+                    }
                 }
                 setShowsToAir(shows)
             }
@@ -64,22 +56,30 @@ export default function Calendar() {
         });
     }, [])
 
+    useEffect(() => {
+        console.log(listDisplay)
+    }, [listDisplay])
+
     return(
 
-        <div className="main-page-calendar">
-            <h1>Prochains épisodes</h1>
-            <div className="list-days">
-                {
-                    showsToAir.length !== 0 &&
-                    daysOfWeek.map((day) => {
-                        return(
-                            <DayOfWeek key={day.name} date={day} shows={showsToAir} />
-                        )
-                    })
-                }
+        <div>
+            <div className='main-notifications'>
+                <div className='bell' onClick={() => setListDisplay(!listDisplay)}>
+                    <BellFill />
+                    <div className='notif-number'>
+                        {
+                            showsToAir.length > 0 &&
+                            <p>{showsToAir.length}</p>
+                        }
+                    </div>
+                </div>
             </div>
+            {
+                showsToAir.length > 0 &&
+                <NotifsDiv listShows={showsToAir} display={listDisplay} />
+            }
         </div>
-
+        
     )
 
 }
