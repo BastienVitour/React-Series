@@ -16,7 +16,7 @@ export default function DayOfWeek({ date, shows }) {
 
     return(
 
-        <div className="day-div">
+        <div className={(new Date().getDay() == date.date.getDay() ? "current-day" : "") + " day-div"}>
             <h3>{date.name} ({date.date.toLocaleDateString().substring(0, 5)})</h3>
             <hr />
             {
@@ -24,7 +24,7 @@ export default function DayOfWeek({ date, shows }) {
                     return(
                         <div className="show-next-episode">
                             <h4>{show.name}</h4>
-                            <img src={'https://image.tmdb.org/t/p/original'+show.backdrop_path} alt="Poster of the show" width="125px" />
+                            <img src={'https://image.tmdb.org/t/p/w500'+show.backdrop_path} alt="Poster of the show" width="125px" />
                             <p>{show.next_episode_to_air.name}</p>
                             <hr />
                         </div>

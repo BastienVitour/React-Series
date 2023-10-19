@@ -14,25 +14,24 @@
             border-radius: 12px;
 
             hr {
-                color: #1D233B;
+                border-color: #1D233B;
+                outline: none;
                 width: 75%;
             }
 
             .show-next-episode {
-                h4 {
-                    margin-block-end: 0.5em;
-                }
-                p {
-                    margin-block-start: 0.5em
-                }
+                h4 { margin-block-end: 0.5em;}
+                p {margin-block-start: 0.5em}
             }
 
             .show-next-episode:last-of-type {
                 hr {display: none;}
             }
 
+        }
 
-
+        .day-div.current-day {
+            background-color: rgb(157, 230, 157);
         }
     }
 }
