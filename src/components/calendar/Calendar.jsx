@@ -50,25 +50,6 @@ export default function Calendar() {
         }
     }
 
-    const getShowsToAir = async () => {
-        try {
-            let shows = []
-            await axios.get(`https://api.themoviedb.org/3/discover/tv?first_air_date.gte=${startDate.toISOString().substring(0, 10)}&first_air_date.lte=${endDate.toISOString().substring(0, 10)}&language=en-US&page=1&api_key=${api_key}&popularity=revenue.desc`)
-            .then(async (response) => {
-                console.log(response.data)
-                for (const show of response.data.results) {
-                    const showNew = await axios.get(`https://api.themoviedb.org/3/tv/${show.id}?api_key=${api_key}`)
-                    shows = shows.concat(showNew.data)
-                }
-                setShowsToAir(shows)
-            })
-            .catch((error) => console.error(error))
-        }
-        catch(error) {
-            console.error(error)
-        }
-    }
-
     useEffect(() => {
         auth.onAuthStateChanged(function(user) {
             if (user) {

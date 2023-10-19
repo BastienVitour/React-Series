@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { auth } from "../../config/firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import './login.scss'
+import '../../formStyle.scss'
 import Background from "../signup/Background"
 
 export default function Login() {
@@ -32,16 +32,16 @@ export default function Login() {
 
     return(
 
-        <div className="main-login-page">
+        <div className="main-form">
             <h1>Connexion</h1>
-            <div className="login-form">
+            <div className="form-log-req-pro">
                 {error !== "" && 
                     <p style={{color: 'red'}}>{error}</p>
                 }
-                <input className="login-input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                <input className="login-input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-                <button className="login-submit" onClick={login}>Connexion</button>
-                <Link to={'/signup'} className="signup-link">S'inscrire</Link>
+                <input className="input-log-req-pro" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+                <input className="input-log-req-pro" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                <button className="submit-log-req-pro" onClick={login}>Connexion</button>
+                <Link to={'/signup'} className="link">S'inscrire</Link>
             </div>
 
             <Background />

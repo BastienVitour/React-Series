@@ -1,8 +1,7 @@
 $nice-blue: rgb(31, 107, 229);
 $other-blue: #388CFC;
 
-.main-signup-page {
-
+.main-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +12,7 @@ $other-blue: #388CFC;
         color: whitesmoke;
     }
 
-    .signup-form {
+    .form-log-req-pro {
 
         display: flex;
         flex-direction: column;
@@ -26,7 +25,7 @@ $other-blue: #388CFC;
             color: red;
         }
 
-        .signup-input {
+        .input-log-req-pro {
             padding: 10px 10px 4px 10px;
             margin-bottom: 10px;
             font-size: 1.25em;
@@ -36,19 +35,19 @@ $other-blue: #388CFC;
             color: whitesmoke
         }
 
-        .signup-input:last-of-type {
+        .input-log-req-pro:last-of-type {
             margin-bottom: 20px;
         }
 
-        .signup-input:focus {
+        .input-log-req-pro:focus {
             outline: none;
         }
 
-        .signup-input::placeholder {
+        .input-log-req-pro::placeholder {
             color: rgb(176, 176, 176)
         }
 
-        .signup-submit {
+        .submit-log-req-pro {
             border: 1px solid $nice-blue;
             background-color: $nice-blue;
             color: whitesmoke;
@@ -58,13 +57,13 @@ $other-blue: #388CFC;
             cursor: pointer;
         }
 
-        .signup-submit:hover {
+        .submit:hover {
             border-color: $other-blue;
             background-color: $other-blue;
             transition: 0.25s;
         }
 
-        .login-link {
+        .link {
             margin-top: 15px;
             color: whitesmoke
         }
@@ -73,13 +72,13 @@ $other-blue: #388CFC;
 
     .background {
         // transform: rotateZ(-25deg) translate(-25%, -67%);
-        background-image: url('../../../public/shows-background.png');
+        background-image: url('../public/shows-background.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         transform: translate(-50%, -50%);
         z-index: -1;
-        //opacity: 0.25;
+        //opacity: 0.65;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -91,5 +90,4 @@ $other-blue: #388CFC;
             margin: 3px;
         }
     }
-
 }
