@@ -69,8 +69,6 @@ export default function Inscription() {
                 <Link to={'/login'} className="link">Se connecter</Link>
             </div>
             
-            <button onClick={logout}>Se déconnecter</button>
-            
             <Background />
             
         </div>
