@@ -2,7 +2,6 @@ $nice-blue: rgb(31, 107, 229);
 $other-blue: #388CFC;
 
 .main-form {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +12,7 @@ $other-blue: #388CFC;
         color: whitesmoke;
     }
 
-    .form {
+    .form-log-req-pro {
 
         display: flex;
         flex-direction: column;
@@ -26,7 +25,7 @@ $other-blue: #388CFC;
             color: red;
         }
 
-        .input {
+        .input-log-req-pro {
             padding: 10px 10px 4px 10px;
             margin-bottom: 10px;
             font-size: 1.25em;
@@ -36,19 +35,19 @@ $other-blue: #388CFC;
             color: whitesmoke
         }
 
-        .input:last-of-type {
+        .input-log-req-pro:last-of-type {
             margin-bottom: 20px;
         }
 
-        .input:focus {
+        .input-log-req-pro:focus {
             outline: none;
         }
 
-        .input::placeholder {
+        .input-log-req-pro::placeholder {
             color: rgb(176, 176, 176)
         }
 
-        .submit {
+        .submit-log-req-pro {
             border: 1px solid $nice-blue;
             background-color: $nice-blue;
             color: whitesmoke;
@@ -91,5 +90,4 @@ $other-blue: #388CFC;
             margin: 3px;
         }
     }
-
 }

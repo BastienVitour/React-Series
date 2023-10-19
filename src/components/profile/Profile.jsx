@@ -74,21 +74,21 @@ export default function Profile() {
             <div className="main-form profile-form">
 
                 <h2>Modifier mon mot de passe</h2>
-                <div className="form password-form">
-                    <input className="input" type="password" placeholder="Mot de passe actuel" onChange={(e) => setPasswordForPwd(e.target.value)} />
-                    <input className="input" type="password" placeholder="Nouveau mot de passe" onChange={(e) => setNewPasswordForPwd(e.target.value)} />
-                    <input className="input" type="password" placeholder="Confirmer le nouveau mot de passe" onChange={(e) => setConfirmNewPasswordForPwd(e.target.value)} />
+                <div className="form-log-req-pro password-form">
+                    <input className="input-log-req-pro" type="password" placeholder="Mot de passe actuel" onChange={(e) => setPasswordForPwd(e.target.value)} />
+                    <input className="input-log-req-pro" type="password" placeholder="Nouveau mot de passe" onChange={(e) => setNewPasswordForPwd(e.target.value)} />
+                    <input className="input-log-req-pro" type="password" placeholder="Confirmer le nouveau mot de passe" onChange={(e) => setConfirmNewPasswordForPwd(e.target.value)} />
 
-                    <button className="submit" onClick={resetPassword}>Réinitialiser le mot de passe</button>
+                    <button className="submit-log-req-pro" onClick={resetPassword}>Réinitialiser le mot de passe</button>
                 </div>
 
                 <h2>Modifier mon email</h2>
 
-                <div className="form email-form">
-                    <input className="input" type="password" placeholder="Mot de passe" onChange={(e) => setPasswordForEmail(e.target.value)} />
-                    <input className="input" type="email" placeholder="Nouvel email" onChange={(e) => setNewEmail(e.target.value)} />
+                <div className="form-log-req-pro email-form">
+                    <input className="input-log-req-pro" type="password" placeholder="Mot de passe" onChange={(e) => setPasswordForEmail(e.target.value)} />
+                    <input className="input-log-req-pro" type="email" placeholder="Nouvel email" onChange={(e) => setNewEmail(e.target.value)} />
 
-                    <button className="submit" onClick={resetEmail}>Réinitialiser l'email</button>
+                    <button className="submit-log-req-pro" onClick={resetEmail}>Réinitialiser l'email</button>
                 </div>
             </div>
 

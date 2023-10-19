@@ -34,13 +34,13 @@ export default function Login() {
 
         <div className="main-form">
             <h1>Connexion</h1>
-            <div className="form">
+            <div className="form-log-req-pro">
                 {error !== "" && 
                     <p style={{color: 'red'}}>{error}</p>
                 }
-                <input className="input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                <input className="input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-                <button className="submit" onClick={login}>Connexion</button>
+                <input className="input-log-req-pro" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+                <input className="input-log-req-pro" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                <button className="submit-log-req-pro" onClick={login}>Connexion</button>
                 <Link to={'/signup'} className="link">S'inscrire</Link>
             </div>
 

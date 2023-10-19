@@ -57,15 +57,15 @@ export default function Inscription() {
 
         <div className="main-form">
             <h1>Inscription</h1>
-            <div className="form">
+            <div className="form-log-req-pro">
                 {error !== "" && 
                     <p className="error-message">{error}</p>
                 }
-                <input className="input" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-                <input className="input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <input className="input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-                <input className="input" type="password" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} />
-                <button className="submit" onClick={signUp}>S'inscrire</button>
+                <input className="input-log-req-pro" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+                <input className="input-log-req-pro" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input className="input-log-req-pro" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <input className="input-log-req-pro" type="password" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} />
+                <button className="submit-log-req-pro" onClick={signUp}>S'inscrire</button>
                 <Link to={'/login'} className="link">Se connecter</Link>
             </div>
             
