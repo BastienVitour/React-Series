@@ -18,8 +18,10 @@ export default function Show(){
         .then(async (response) => {
             let seasons = []
             for (const season of response.data.seasons) {
-                const toAdd = await axios.get(`https://api.themoviedb.org/3/tv/${id}/season/${season.season_number}?language=en-US&api_key=${api_key}`)
-                seasons = seasons.concat(toAdd.data)
+                if(season.season_number != 0) {
+                    const toAdd = await axios.get(`https://api.themoviedb.org/3/tv/${id}/season/${season.season_number}?language=en-US&api_key=${api_key}`)
+                    seasons = seasons.concat(toAdd.data)
+                }
             }
             setSeasons(seasons)
             setShow(response.data);
@@ -51,17 +53,17 @@ export default function Show(){
 
         
         {seasons.map((season) => {
-                return(
-                    <div className="season">
+            return(
+                <div className="season">
 
-                        <h3>{season.name}</h3>
+                    <h3>{season.name}</h3>
 
-                        <div className="episodes">
-                            <ShowList season={season} />
-                        </div>
+                    <div className="episodes">
+                        <ShowList season={season} />
                     </div>
-                )
-            })}
+                </div>
+            )
+        })}
 
 
     </div>
