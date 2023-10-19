@@ -1,0 +1,88 @@
+$nice-blue: rgb(31, 107, 229);
+$other-blue: #388CFC;
+
+.main-login-page {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    h1 {
+        color: whitesmoke;
+    }
+
+    .login-form {
+
+        display: flex;
+        flex-direction: column;
+        border: 3px solid $nice-blue;
+        padding: 25px;
+        border-radius: 12px;
+        min-width: 350px;
+
+        .error-message {
+            color: red;
+        }
+
+        .login-input {
+            padding: 10px 10px 4px 10px;
+            margin-bottom: 10px;
+            font-size: 1.25em;
+            background-color: inherit;
+            border: none;
+            border-bottom: 1px solid $other-blue;
+            color: whitesmoke
+        }
+
+        .login-input:last-of-type {
+            margin-bottom: 20px;
+        }
+
+        .login-input:focus {
+            outline: none;
+        }
+
+        .login-input::placeholder {
+            color: rgb(176, 176, 176)
+        }
+
+        .login-submit {
+            border: 1px solid $nice-blue;
+            background-color: $nice-blue;
+            color: whitesmoke;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-submit:hover {
+            border-color: $other-blue;
+            background-color: $other-blue;
+            transition: 0.25s;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+            color: whitesmoke
+        }
+
+    }
+
+    .background {
+        transform: rotateZ(-25deg) translate(-25%, -65%);
+        z-index: -1;
+        opacity: 0.25;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 2000px;
+
+        img {
+            margin: 3px;
+        }
+    }
+
+}
