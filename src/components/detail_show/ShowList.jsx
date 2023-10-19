@@ -21,26 +21,18 @@ const ShowList = ({ season }) => {
         }
     }
 
-    useEffect(() => {
-        console.log(season)
-    }, [])
     return (
-        // <div className="list-container">
-            <div>
-                {/* <ArrowBackIosOutlined className="sliderArrow left" onClick={() => handleClick("left")}/> */}
-                <div className="show-container" ref={listRef}>
-                    { (season !== null && season !== undefined) &&
-                        season.episodes.map((episode) => {
-                            return(
-                                <ShowItem episode={episode} />
-                            )
-                        })
-                    }
-                
-                </div>
-                {/* <ArrowForwardIosOutlined className="sliderArrow right" onClick={() => handleClick("right")} /> */}
+        <div>
+            <div className="show-container" ref={listRef}>
+                { (season !== null && season !== undefined) &&
+                    season.episodes.map((episode) => {
+                        return(
+                            <ShowItem episode={episode} />
+                        )
+                    })
+                }
             </div>
-        // </div>
+        </div>
     )}
 
     export default ShowList

@@ -1,15 +1,22 @@
 .banner {
-    background-size: cover;
-    border-radius: 12px;
     transition-duration: 900ms;
-    width: 80%;
+    height: 500px;
+    z-index: -1;
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
 
-    :hover {
-        box-shadow: 0px 0px 30px black;
-        transition-duration: 900ms;
-    }
 }
 
 .banniere{
+    text-align: center;
     margin: auto;
+    height: 500px;
+    border-radius: 12px;
+    width: 75%;
+    background: linear-gradient(to bottom, transparent, #1d233b)
+}
+
+.banniere div h1 {
+    margin: -7vh;
 }

@@ -38,9 +38,16 @@ export default function Show(){
 
         <Banner show={show}/>
 
-        <h1>Next Episode</h1>
+        <h1 className="TitreNextEp">Next Episode</h1>
 
-        {show.next_episode_to_air !== null &&  <img src={'https://image.tmdb.org/t/p/original'+show.backdrop_path} className="NextEp" alt="Show poster"/>}
+        {(show.next_episode_to_air !== null && show.next_episode_to_air !== undefined) &&
+            <div className="NextEp">
+                <img src={'https://image.tmdb.org/t/p/original'+show.next_episode_to_air.still_path} className="ImgNextEp" alt="Show poster"/>
+                <h2>{show.next_episode_to_air.name}</h2>
+                <p>{show.next_episode_to_air.overview}</p>
+
+            </div>
+        }
 
         
         {seasons.map((season) => {
@@ -51,20 +58,6 @@ export default function Show(){
 
                         <div className="episodes">
                             <ShowList season={season} />
-
-                            {/* {season.episodes.map((episode) => {
-                                console.log(episode);
-                                if(episode.runtime !== null) {
-                                    return(
-                                    
-                                    <div className="episode">
-                                        {show.episode !== null &&  <img src={'https://image.tmdb.org/t/p/original'+show.backdrop_path} className="imgEp" alt="Show poster"/>}
-                                        <span>{episode.name}</span>
-                                        <span>{episode.overview}</span>
-                                    </div>
-                                )
-                                }
-                            })} */}
                         </div>
                     </div>
                 )

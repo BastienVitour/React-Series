@@ -28,27 +28,50 @@
             } 
         }
 
-        .show-container {
-            //margin-left: 50px; 
-            display: flex; 
-            margin-top: 10px; 
-            width: 100vw;
-            white-space: nowrap;
-            overflow-x: scroll;
-            // overflow-y: hidden;
-            transform: translateX(0px); 
-            transition: all 0.25s ease; 
-        }
+
+        // .show-container {
+        //     //margin-left: 50px; 
+        //     display: flex; 
+        //     margin-top: 10px; 
+        //     width: 100vw;
+        //     white-space: nowrap;
+        //     overflow-x: scroll;
+        //     // overflow-y: hidden;
+        //     transform: translateX(0px); 
+        //     transition: all 0.25s ease; 
+        // }
     }
 }
 .show-container {
     //margin-left: 50px; 
     display: flex; 
-    margin-top: 10px; 
+    margin: 0 10px; 
     width: 100vw;
     white-space: nowrap;
     overflow-x: auto;
     // overflow-y: hidden;
     transform: translateX(0px); 
     transition: all 0.25s ease; 
+
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 0.8rem; 
+      }
+    
+      /* Track /
+    ::-webkit-scrollbar-track {
+      }
+    
+      / Handle /
+      ::-webkit-scrollbar-thumb {
+        background: #8c8c8c;
+        height: 2rem; 
+        border-radius: 1rem;
+    
+      }
+    
+      / Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
 }
