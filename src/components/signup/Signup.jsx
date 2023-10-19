@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { auth } from "../../config/firebase"
 import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
-import './signup.scss'
+import '../../formStyle.scss'
 import Background from "./Background"
 
 export default function Inscription() {
@@ -55,18 +55,18 @@ export default function Inscription() {
 
     return(
 
-        <div className="main-signup-page">
+        <div className="main-form">
             <h1>Inscription</h1>
-            <div className="signup-form">
+            <div className="form">
                 {error !== "" && 
                     <p className="error-message">{error}</p>
                 }
-                <input className="signup-input" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-                <input className="signup-input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                <input className="signup-input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-                <input className="signup-input" type="password" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} />
-                <button className="signup-submit" onClick={signUp}>S'inscrire</button>
-                <Link to={'/login'} className="login-link">Se connecter</Link>
+                <input className="input" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+                <input className="input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                <input className="input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <input className="input" type="password" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} />
+                <button className="submit" onClick={signUp}>S'inscrire</button>
+                <Link to={'/login'} className="link">Se connecter</Link>
             </div>
             
             <button onClick={logout}>Se déconnecter</button>
