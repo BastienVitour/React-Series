@@ -5,7 +5,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { api_key } from "../../config/api_key";
 import ShowList from "./ShowList";
-import Comment from './Comment';
+import Comment from './comments/Comment';
+import CommentForm from './comments/CommentForm';
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import {db} from "../../config/firebase";
 
 export default function Show(){
 
@@ -14,6 +17,8 @@ export default function Show(){
     const [show, setShow] = useState({});
     const [seasons, setSeasons] = useState([]);
     const [credits, setCredits] = useState([]);
+    const [comments, setComments] = useState([]);
+    const commentsCollection = collection(db, 'comments');
 
     const getShow = async () => {
         await axios.get(`https://api.themoviedb.org/3/tv/${id}?language=en-US&api_key=${api_key}`)
@@ -34,7 +39,6 @@ export default function Show(){
         .catch((error) => console.error(error));
     }
     
-
     const getCredits = async () => {
         await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?language=en-US&api_key=${api_key}`)
         .then(async (response) => {
@@ -43,12 +47,18 @@ export default function Show(){
         })
     }
 
-    useEffect(() => {
-        getShow()
-    }, []);
+    const getComments = async () => {
+        const q = query(commentsCollection, where("id_show", "==", id), orderBy("timestamp", "desc"));
+        const commentaire = await getDocs(q);
+        const data = commentaire.docs.map((doc) => ({...doc.data(), id: doc.id}))
+        setComments(data);
+        console.log(data);
+        }
 
     useEffect(() => {
+        getShow()
         getCredits()
+        getComments()
     }, []);
 
     return (
@@ -82,7 +92,19 @@ export default function Show(){
             )
         })}
 
-        <Comment  />
+        <CommentForm idShow={id} getComments={getComments} />
+        <div className="comments-div">
+            {comments.length > 0 &&
+            comments.map((comment) => {
+                console.log(comment)
+                return(
+                    <Comment
+                        key={comment.id}
+                        comment={comment}
+                    />
+                )
+            })}
+        </div>
 
     </div>
 
