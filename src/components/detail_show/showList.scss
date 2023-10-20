@@ -1,32 +1,15 @@
 .list-container {
     width : 100%; 
     margin-top : 10px; 
-    width: 100vw;
+    width: 100%;
     overflow-x: auto;
 
     .wrapper {
         position : relative; 
-        width: 100vw;
+        width: 100%;
         overflow-x: auto;
 
-        .sliderArrow { 
-            width: 50px; 
-            height: 100%; 
-            background-color: RGB(22, 22, 22, 0,5); 
-            color: white; 
-            position: absolute; 
-            z-index: 99; 
-            top: 0; 
-            bottom: 0 ; 
-            margin: auto ; 
-            cursor: pointer;
-            &.left { 
-                left: 0; 
-            }
-            &.right { 
-                right: 0; 
-            } 
-        }
+        
 
 
         // .show-container {
@@ -46,7 +29,7 @@
     //margin-left: 50px; 
     display: flex; 
     margin: 0 10px; 
-    width: 100vw;
+    width: 100%;
     white-space: nowrap;
     overflow-x: auto;
     // overflow-y: hidden;
@@ -58,19 +41,6 @@
         height: 0.8rem; 
       }
     
-      /* Track /
-    ::-webkit-scrollbar-track {
-      }
-    
-      / Handle /
-      ::-webkit-scrollbar-thumb {
-        background: #8c8c8c;
-        height: 2rem; 
-        border-radius: 1rem;
-    
-      }
-    
-      / Handle on hover */
       ::-webkit-scrollbar-thumb:hover {
         background: #555; 
       }

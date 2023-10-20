@@ -1,6 +1,5 @@
 .banner {
     transition-duration: 900ms;
-    height: 500px;
     z-index: -1;
     position: relative;
     width: 100%;
@@ -11,12 +10,41 @@
 .banniere{
     text-align: center;
     margin: auto;
-    height: 500px;
     border-radius: 12px;
-    width: 75%;
-    background: linear-gradient(to bottom, transparent, #1d233b)
+    width: 100%;
 }
 
+.gradient {
+    background: linear-gradient(to bottom, transparent, #191D29)
+}
 .banniere div h1 {
-    margin: -7vh;
+    margin: -5vh 0 4vh 0;
+}
+
+.descShow {
+    margin: auto;
+    width: 90%;
+}
+
+.banniere div span {
+    display: flex;
+    flex-direction: row;
+    margin: 7vh auto;
+    width: 75%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.zoneActeur {
+    width: 10vw;
+}
+
+.profilActeur{
+    width: 80%;
+    border-radius: 50%;
+}
+
+.casters {
+    display: flex;
+    align-items: center;
 }
