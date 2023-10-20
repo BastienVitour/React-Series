@@ -4,7 +4,7 @@
 
 .NextEp{
 display: flex;
-flex-direction: row;
+flex-direction: column;
 
 
     .ImgNextEp{
@@ -47,6 +47,17 @@ flex-direction: row;
     }
     
 }
+
+.cardNextEp{
+    display: flex;
+    flex-direction: row;
+}
+
+.textNextEp{
+    display: flex;
+    flex-direction: column;
+}
+
 .season{
     margin: 10vh 0 0;
 
@@ -54,4 +65,9 @@ flex-direction: row;
         margin-left: 2vh;
         font-size: 2.5rem;
     }
+}
+
+.comments-div{
+    width: 75%;
+    margin: auto;
 }

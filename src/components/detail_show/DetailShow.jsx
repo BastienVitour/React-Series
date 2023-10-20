@@ -71,10 +71,18 @@ export default function Show(){
 
         {(show.next_episode_to_air !== null && show.next_episode_to_air !== undefined) &&
             <div className="NextEp">
+                
                 <h1 className="TitreNextEp">Next Episode</h1>
-                <img src={'https://image.tmdb.org/t/p/original'+show.next_episode_to_air.still_path} className="ImgNextEp" alt="Show poster"/>
-                <h2>{show.next_episode_to_air.name}</h2>
-                <p>{show.next_episode_to_air.overview}</p>
+
+                <div className="cardNextEp">
+
+                    <img src={'https://image.tmdb.org/t/p/original'+show.next_episode_to_air.still_path} className="ImgNextEp" alt="Show poster"/>
+
+                    <div className="textNextEp">
+                        <h2>{show.next_episode_to_air.name}</h2>
+                        <p>{show.next_episode_to_air.overview}</p>
+                    </div>
+                </div>
 
             </div>
         }
