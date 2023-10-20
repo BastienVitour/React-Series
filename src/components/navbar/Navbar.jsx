@@ -1,6 +1,6 @@
 import { useLocation, Link, useNavigate } from 'react-router-dom'
 import './navbar.scss'
-import { HouseDoorFill, CalendarEventFill, Search, PersonCircle } from 'react-bootstrap-icons'
+import { HouseDoorFill, CalendarEventFill, Search, PersonCircle, Bell, BellFill } from 'react-bootstrap-icons'
 import { useEffect, useState } from 'react'
 import { auth } from "../../config/firebase"
 import { signOut } from "firebase/auth"
@@ -8,6 +8,7 @@ import CustomInput from "../formComponents/CustomInput"
 import CustomButton from "../formComponents/CustomButton"
 import axios from 'axios'
 import { api_key } from '../../config/api_key'
+import Notifications from '../notifications/Notifications'
 
 export default function Navbar() {
 
@@ -16,6 +17,8 @@ export default function Navbar() {
 
     const [logged, setLogged] = useState()
     const [search, setSearch] = useState("")
+
+    const [displayNotifs, setDisplayNotifs] = useState(false)
 
     const logout = async () => {
         try {
@@ -41,7 +44,6 @@ export default function Navbar() {
                 setLogged(true)
               // User is signed in.
             } else {
-                console.error("User not signed in")
                 setLogged(false)
               // No user is signed in.
             }
@@ -56,18 +58,31 @@ export default function Navbar() {
                     <HouseDoorFill />
                     <span className='nav-title'>Accueil</span>
                 </Link>
-                <Link to={"/search"} className={location.pathname=='/search' ? "active navlink" : "navlink"}>
-                    <Search />
-                    <span className='nav-title'>Recherche</span>
-                </Link>
-                <Link to={"/calendar"} className={location.pathname=='/calendar' ? "active navlink" : "navlink"}>
-                    <CalendarEventFill />
-                    <span className='nav-title'>Calendrier</span>
-                </Link>
-                <Link to={"/profile"} className={location.pathname=='/profile' ? "active navlink" : "navlink"}>
-                    <PersonCircle />
-                    <span className='nav-title'>Profil</span>
-                </Link>
+                {
+                    logged &&
+                    <div className='links-if-logged'>
+                    <Link to={"/search"} className={location.pathname=='/search' ? "active navlink" : "navlink"}>
+                        <Search />
+                        <span className='nav-title'>Recherche</span>
+                    </Link>
+                    <Link to={"/calendar"} className={location.pathname=='/calendar' ? "active navlink" : "navlink"}>
+                        <CalendarEventFill />
+                        <span className='nav-title'>Calendrier</span>
+                    </Link>
+                    <Link to={"/profile"} className={location.pathname=='/profile' ? "active navlink" : "navlink"}>
+                        <PersonCircle />
+                        <span className='nav-title'>Profil</span>
+                    </Link>
+                    <Link className={displayNotifs ? "active navlink" : "navlink"} onClick={() => setDisplayNotifs(!displayNotifs)}>
+                        {
+                            displayNotifs ? <BellFill /> : <Bell />
+                        }
+                        <span className='nav-title'>Notifications</span>
+                        <Notifications divDisplay={displayNotifs} />
+                    </Link>
+                    </div>
+                }
+                
             </div>
 
             {/* <div className='search-bar'>

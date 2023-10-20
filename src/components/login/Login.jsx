@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { auth } from "../../config/firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
@@ -31,10 +31,6 @@ export default function Login() {
             setError("Tous les champs doivent être remplis")
         }
     }
-
-    useEffect(() => {
-        console.log(auth?.currentUser?.email)
-    }, [email])
 
     return(
 

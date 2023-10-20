@@ -7,8 +7,11 @@ import { api_key } from '../../config/api_key'
 import { db } from '../../config/firebase'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { auth } from '../../config/firebase'
+import { useNavigate } from 'react-router-dom'
 
 export default function Calendar() {
+
+    const navigate = useNavigate()
 
     const currentDate = new Date()
     const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
@@ -56,7 +59,7 @@ export default function Calendar() {
                 getFollowedShows()
               // User is signed in.
             } else {
-                console.error("User not signed in")
+                navigate('/login')
               // No user is signed in.
             }
         });

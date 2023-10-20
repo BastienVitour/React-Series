@@ -7,7 +7,7 @@ export default function DayOfWeek({ date, shows }) {
     useEffect(() => {
         shows.map((show) => {
             if(show.next_episode_to_air !== null) {
-                if(new Date(show.next_episode_to_air.air_date).toLocaleDateString() == date.date.toLocaleDateString()) {
+                if(new Date(show.next_episode_to_air.air_date).toLocaleDateString() === date.date.toLocaleDateString()) {
                     setShowsToAir(showsToAir => [...showsToAir, show])
                 }
             }
@@ -16,7 +16,7 @@ export default function DayOfWeek({ date, shows }) {
 
     return(
 
-        <div className={(new Date().getDay() == date.date.getDay() ? "current-day" : "") + " day-div"}>
+        <div className={(new Date().getDay() === date.date.getDay() ? "current-day" : "") + " day-div"}>
             <h3>{date.name} ({date.date.toLocaleDateString().substring(0, 5)})</h3>
             <hr />
             {
