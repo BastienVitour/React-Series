@@ -31,6 +31,7 @@ console.log(tv[randomIndex])
   setTvRandom(tv[randomIndex]);
   }
 
+  
  // RECUPERE TOUTES LES SERIES tv POPULAIRE
   const getTv = async () => { // this function gets the TV informations from the API and set the state TV
     await axios.get(`${baseUrl}/tv/popular?language=en-US&page=1&api_key=${api_key}`)
@@ -49,7 +50,7 @@ console.log(tv[randomIndex])
   }, [tv])
 
 
-  
+
   return (
     <>
 

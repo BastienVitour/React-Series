@@ -4,9 +4,12 @@
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
 }
-.homepagetv :hover {
-  border: blueviolet;
-  cursor: pointer;
+
+.tv-link {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 14px;
 }
 
 .single-line {

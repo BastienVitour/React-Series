@@ -3,17 +3,18 @@
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
-    :hover
-    {
-      border: blueviolet;
-      cursor: pointer;
 
-    }
+}
+
+.tv-link {
+  text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 14px;
 }
 .single-line {
   text-transform: uppercase;
   text-align: left;
-  
   overflow: hidden;
   margin: 0 auto;
   text-decoration: none;
@@ -65,4 +66,8 @@
    left: 1rem;
    bottom: 1rem;
 
+  }
+
+  .liked {
+    color: #ff00FF;
   }
