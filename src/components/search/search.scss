@@ -1,0 +1,41 @@
+.main-search-page {
+
+    .list-genres {
+
+        margin-bottom: 15px;
+
+        button:first-of-type {
+            background-color: orange;
+            border-color: orange;
+        }
+
+        button:first-of-type:hover {
+            background-color: darkorange;
+            border-color: darkorange;
+        }
+
+        button {
+            margin-right: 5px;
+        }
+
+    }
+
+    .search-results {
+
+        .good-results {
+
+            .pagination {
+                width: 100vw;
+                text-align: center;
+                .pagination-arrow {
+                    cursor: pointer;
+                    margin: 25px;
+                    font-size: 3em;
+                }
+            }
+
+        }
+
+    }
+
+}

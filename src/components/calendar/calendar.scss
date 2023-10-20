@@ -1,0 +1,38 @@
+.main-page-calendar {
+    color: whitesmoke;
+    text-align: center;
+
+    .list-days {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 25px;
+
+        .day-div {
+            background-color: whitesmoke;
+            color: #1D233B;
+            width: 12%;
+            border-radius: 12px;
+
+            hr {
+                border-color: #1D233B;
+                outline: none;
+                width: 75%;
+            }
+
+            .show-next-episode {
+                h4 { margin-block-end: 0.5em;}
+                p {margin-block-start: 0.5em}
+            }
+
+            .show-next-episode:last-of-type {
+                hr {display: none;}
+            }
+
+        }
+
+        .day-div.current-day {
+            background-color: rgb(157, 230, 157);
+        }
+    }
+}

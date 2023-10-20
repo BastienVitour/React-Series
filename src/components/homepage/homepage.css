@@ -1,0 +1,59 @@
+.homepagetv {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+
+}
+
+.tv-link {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.single-line {
+  text-transform: uppercase;
+  text-align: left;
+  overflow: hidden;
+  margin: 0 auto;
+  text-decoration: none;
+  left: 0rem;
+
+}
+
+.single-tv {
+  padding-bottom: 20px;
+  max-height: 400px;
+}
+.single-tv img {
+  width: 100%;
+  border-radius: 7px;
+}
+
+.featured {
+  position: relative;
+  background: linear-gradient(45deg, black, transparent);
+}
+.featured img {
+  position: relative;
+  z-index: -1;
+  border-radius: 7px;
+  height: auto;
+  width: 100%;
+}
+
+.text-featured {
+  position: absolute;
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+  bottom: 0rem;
+  left: 0rem;
+  max-width: 40%;
+  text-align: left;
+  font-size: 20px;
+  left: 1rem;
+  bottom: 1rem;
+}/*# sourceMappingURL=homepage.css.map */

@@ -1,0 +1,73 @@
+.TitreNextEp{
+    margin: 6vh;
+}
+
+.NextEp{
+display: flex;
+flex-direction: column;
+
+
+    .ImgNextEp{
+        background-size: cover;
+        border-radius: 12px;
+        transition-duration: 900ms;
+        width: 25%;
+        margin: 3vh;
+    }
+
+    .ImgNextEp:hover {
+        box-shadow: 0px 0px 30px black;
+        transition-duration: 900ms;
+    }
+
+    .season{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .episodes{
+        display: flex;
+        flex-direction:row;
+    }
+
+    .episode{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+    }
+
+
+    .imgEp:hover {
+        box-shadow: 0px 0px 30px black;
+        transition-duration: 900ms;
+    }
+
+    .episode span {
+        margin: 1vh;
+    }
+    
+}
+
+.cardNextEp{
+    display: flex;
+    flex-direction: row;
+}
+
+.textNextEp{
+    display: flex;
+    flex-direction: column;
+}
+
+.season{
+    margin: 10vh 0 0;
+
+    h3{
+        margin-left: 2vh;
+        font-size: 2.5rem;
+    }
+}
+
+.comments-div{
+    width: 75%;
+    margin: auto;
+}

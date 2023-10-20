@@ -1,0 +1,89 @@
+.homepagetv {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: center;
+    justify-items: center;
+
+
+}
+
+.tv-link {
+  text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 14px;
+}
+.single-line {
+  text-transform: uppercase;
+  text-align: left;
+  overflow: hidden;
+  margin: 0 auto;
+  text-decoration: none;
+  left: 0rem;
+  position: sticky;
+
+
+}
+
+.single-tv {
+
+  max-height: 400px;
+  max-width: fit-content;
+
+
+  padding-bottom: 66px;
+  img {
+    //width: 100%;
+    border-radius: 7px;
+    max-height: 400px;
+
+
+
+  }
+  a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 14px;
+
+  }
+}
+
+
+
+
+
+
+.featured {
+
+  position: relative;
+  background: linear-gradient(45deg,  black, transparent);
+
+  img {
+    position: relative;
+    z-index: -1;
+    border-radius: 7px;
+    height: auto;
+    width: 100%;
+  }
+}
+
+ .text-featured {
+   position: absolute;
+   color: whitesmoke;
+   padding: 10px;
+   border-radius: 5px;
+   bottom: 0rem;
+   left: 0rem;
+   max-width: 40%;
+   text-align: left;
+   font-size: 20px;
+   left: 1rem;
+   bottom: 1rem;
+
+  }
+
+  .liked {
+    color: #ff00FF;
+  }

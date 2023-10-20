@@ -1,0 +1,20 @@
+.main-profile-page {
+
+    color: whitesmoke;
+
+    .profile-form {
+        height: auto;
+        margin-bottom: 25px;
+
+        .notif-select {
+            border: 2px solid #388CFC;
+            background-color: #1D233B;
+            color: whitesmoke;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    }
+
+}
