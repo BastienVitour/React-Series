@@ -51,17 +51,17 @@ export default function Show(){
         getCredits()
     }, []);
 
-    // const { author, text, date } = this.props;
     return (
 
     <div className="container">
 
         <Banner show={show} cast={credits}/>
 
-        <h1 className="TitreNextEp">Next Episode</h1>
+        
 
         {(show.next_episode_to_air !== null && show.next_episode_to_air !== undefined) &&
             <div className="NextEp">
+                <h1 className="TitreNextEp">Next Episode</h1>
                 <img src={'https://image.tmdb.org/t/p/original'+show.next_episode_to_air.still_path} className="ImgNextEp" alt="Show poster"/>
                 <h2>{show.next_episode_to_air.name}</h2>
                 <p>{show.next_episode_to_air.overview}</p>
@@ -82,14 +82,7 @@ export default function Show(){
             )
         })}
 
-
-        <div className="post">
-            <h2>Titre du Post</h2>
-            <Comment author="John" text="Super article !" date="2023-10-19" />
-            <Comment author="Jane" text="J'adore ce contenu !" date="2023-10-19" />
-            {/* Vous pouvez ajouter autant de Comment que nécessaire */}
-        </div>
-
+        <Comment  />
 
     </div>
 
