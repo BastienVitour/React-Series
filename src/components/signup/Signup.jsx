@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { auth } from "../../config/firebase"
-import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
+import { auth, db } from "../../config/firebase"
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
+import { addDoc, collection } from "firebase/firestore"
 import '../../formStyle.scss'
 import Background from "./Background"
 import CustomInput from "../formComponents/CustomInput"
@@ -15,6 +16,8 @@ export default function Inscription() {
     const [confirmPassword, setConfirmPassword] = useState("")
     const [error, setError] = useState("")
 
+    const notifParamsCollection = collection(db, "notification_parameters")
+
     const navigate = useNavigate()
 
     const signUp = async () => {
@@ -22,8 +25,9 @@ export default function Inscription() {
             if(password === confirmPassword) {
                 try {
                     await createUserWithEmailAndPassword(auth, email, password)
-                    .then((result) => {
+                    .then(async (result) => {
                         updateProfile(result.user, {displayName: username})
+                        await addDoc(notifParamsCollection, {days: "1", id_user: result.user.uid})
                         navigate('/')
                     })
                 }
@@ -40,21 +44,6 @@ export default function Inscription() {
             setError("Tous les champs doivent être remplis")
         }
     }
-
-    const logout = async () => {
-        try {
-            await signOut(auth)
-        }
-        catch(error) {
-            console.error(error)
-            setError("Erreur dans la déconnexion")
-        }
-    }
-
-
-    useEffect(() => {
-        console.log(auth?.currentUser?.displayName)
-    }, [email])
 
     return(
 
