@@ -10,7 +10,7 @@ export default function NotifsDiv({ listShows, display }) {
                     if(diffDays == 0 || diffDays == -0) {
                         return(
                             <div className="show-notif" key={show.id}>
-                                <span>Un épisode de {show.name} sort aujourd'hui !</span>
+                                <span>Un épisode de <a href={"/show/"+show.id}>{show.name}</a> sort aujourd'hui !</span>
                                 <hr />
                             </div>
                         )
@@ -24,7 +24,7 @@ export default function NotifsDiv({ listShows, display }) {
                     if(diffDays == 1) {
                         return(
                             <div className="show-notif" key={show.id}>
-                                <span>Un épisode de {show.name} sort demain !</span>
+                                <span>Un épisode de <a href={"/show/"+show.id}>{show.name}</a> sort demain !</span>
                                 <hr />
                             </div>
                         )
@@ -38,7 +38,7 @@ export default function NotifsDiv({ listShows, display }) {
                     if(diffDays > 1) {
                         return(
                             <div className="show-notif" key={show.id}>
-                                <span>Un épisode de {show.name} sort dans {diffDays} jours !</span>
+                                <span>Un épisode de <a href={"/show/"+show.id}>{show.name}</a> sort dans {diffDays} jours !</span>
                                 <hr />
                             </div>
                         )
