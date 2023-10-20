@@ -5,19 +5,21 @@ import { api_key } from "../../config/api_key"
 import Tv from "../homepage/Tv"
 import '../homepage/homepage.scss'
 import './search.scss'
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import CustomInput from "../formComponents/CustomInput"
 import CustomButton from "../formComponents/CustomButton"
+import { auth } from "../../config/firebase"
 
 export default function SearchPage() {
 
-    let location= useLocation()
+    // let location= useLocation()
+    const navigate = useNavigate()
 
     const [search, setSearch] = useState("")
     const [shows, setShows] = useState([])
     const [filteredShows, setFilteredShows] = useState([])
     const [genres, setGenres] = useState([])
-    const [selectedGenre, setSelectedGenre] = useState("")
+    // const [selectedGenre, setSelectedGenre] = useState("")
     const [page, setPage] = useState(1)
     const [maxPages, setMaxPages] = useState(0)
 
@@ -41,10 +43,10 @@ export default function SearchPage() {
     }
 
     const changePage = (direction) => {
-        if(direction == "prev" && page > 1) {
+        if(direction === "prev" && page > 1) {
             setPage(page - 1)
         }
-        else if (direction == "next" && page < maxPages) {
+        else if (direction === "next" && page < maxPages) {
             setPage(page + 1)
         }
     }
@@ -69,7 +71,15 @@ export default function SearchPage() {
         //     searchShows(urlParams.get('search'))
         //     //getMovies(urlParams.get('page'))
         // }
-        getGenres()
+        auth.onAuthStateChanged(function(user) {
+            if (user) {
+                getGenres()
+              // User is signed in.
+            } else {
+                navigate('/login')
+              // No user is signed in.
+            }
+        });
     }, [])
 
     useEffect(() => {

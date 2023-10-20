@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { auth } from "../../config/firebase"
-import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import '../../formStyle.scss'
 import Background from "./Background"
 import CustomInput from "../formComponents/CustomInput"
@@ -40,21 +40,6 @@ export default function Inscription() {
             setError("Tous les champs doivent être remplis")
         }
     }
-
-    const logout = async () => {
-        try {
-            await signOut(auth)
-        }
-        catch(error) {
-            console.error(error)
-            setError("Erreur dans la déconnexion")
-        }
-    }
-
-
-    useEffect(() => {
-        console.log(auth?.currentUser?.displayName)
-    }, [email])
 
     return(
 
