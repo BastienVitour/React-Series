@@ -6,6 +6,8 @@ import Background from '../signup/Background';
 import { HeartFill } from 'react-bootstrap-icons';
 import { db, auth } from '../../config/firebase';
 import { addDoc, collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore';
+import axios from 'axios';
+import { api_key } from '../../config/api_key';
 
 
 
@@ -16,6 +18,7 @@ export default function Tv({tv, featured}) {
   const [liked, setLiked] = useState(null);
 
   const [document, setDocument] = useState({})
+  const [followedShows, setFollowedShows] = useState([])
 
 
   const likeTvShow = async(id_show) => {
@@ -70,6 +73,8 @@ export default function Tv({tv, featured}) {
 
   }, [])
 
+
+
   return (
     <>
 {
@@ -92,19 +97,21 @@ export default function Tv({tv, featured}) {
      <a href={"/show/"+tv.id} className="tv-link" aria-label={`View details for ${tv.name}`}>
       <img src={'https://image.tmdb.org/t/p/w500'+tv.poster_path} alt="TV poster" />
      </a>
-      <div className='single-line'>
         <p>{tv.name} - {tv.vote_average} ⭐️</p>
-      </div>
+      {/* </div> */}
       {
         liked !== null &&
         <div className={liked ? "liked" : ""}>
           <p><HeartFill onClick={() => likeTvShow(tv.id)} /> </p>
         </div>
       }
+      {/* <div className='single-line'> */}
 
  </div>
+
  )
 }
+
     </>
   )
 

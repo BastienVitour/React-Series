@@ -1,8 +1,10 @@
 .homepagetv {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    box-shadow: rgba(0, 0, 0, 0.69) 0px 26px 30px -10px, rgba(0, 0, 0, 0.73) 0px 16px 10px -10px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: center;
+    justify-items: center;
+
 
 }
 
@@ -19,30 +21,44 @@
   margin: 0 auto;
   text-decoration: none;
   left: 0rem;
+  position: sticky;
 
 
 }
 
 .single-tv {
-  padding-bottom: 15px;
+
+  max-height: 400px;
+  max-width: fit-content;
+
+
+  padding-bottom: 66px;
   img {
-    width: 100%;
+    //width: 100%;
     border-radius: 7px;
+    max-height: 400px;
+
+
+
   }
   a{
     text-decoration: none;
     color: whitesmoke;
     font-weight: bolder;
     font-size: 14px;
+
   }
 }
 
+
+
+
+
+
 .featured {
-  padding-bottom: 15px;
-  padding-top: 15px;
+
   position: relative;
   background: linear-gradient(45deg,  black, transparent);
-
 
   img {
     position: relative;
