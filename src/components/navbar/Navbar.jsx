@@ -73,13 +73,13 @@ export default function Navbar() {
                         <PersonCircle />
                         <span className='nav-title'>Profil</span>
                     </Link>
-                    <Link className={displayNotifs ? "active navlink" : "navlink"} onClick={() => setDisplayNotifs(!displayNotifs)}>
+                    <div className={displayNotifs ? "active navlink" : "navlink"} onClick={() => setDisplayNotifs(!displayNotifs)}>
                         {
                             displayNotifs ? <BellFill /> : <Bell />
                         }
                         <span className='nav-title'>Notifications</span>
                         <Notifications divDisplay={displayNotifs} />
-                    </Link>
+                    </div>
                     </div>
                 }
                 
