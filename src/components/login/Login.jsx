@@ -4,6 +4,9 @@ import { auth } from "../../config/firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import '../../formStyle.scss'
 import Background from "../signup/Background"
+import { useNavigate } from "react-router-dom"
+import CustomInput from "../formComponents/CustomInput"
+import CustomButton from "../formComponents/CustomButton"
 
 export default function Login() {
 
@@ -11,10 +14,13 @@ export default function Login() {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
+    const navigate = useNavigate()
+
     const login = async () => {
         if(email !== "" && password !== "") {
             try {
                 await signInWithEmailAndPassword(auth, email, password)
+                navigate('/')
             }
             catch(error) {
                 console.error(error)
@@ -38,9 +44,9 @@ export default function Login() {
                 {error !== "" && 
                     <p style={{color: 'red'}}>{error}</p>
                 }
-                <input className="input-log-req-pro" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                <input className="input-log-req-pro" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-                <button className="submit-log-req-pro" onClick={login}>Connexion</button>
+                <CustomInput placeholder={'Email'} type={'email'} functionToLaunch={setEmail} />
+                <CustomInput placeholder={'Mot de passe'} type={'password'} functionToLaunch={setPassword} />
+                <CustomButton textContent={'Connexion'} functionToLaunch={login} />
                 <Link to={'/signup'} className="link">S'inscrire</Link>
             </div>
 

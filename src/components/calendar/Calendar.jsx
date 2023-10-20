@@ -20,7 +20,6 @@ export default function Calendar() {
 
     const daysOfWeek = []
     for (const date of dates) {
-        console.log(date)
         daysOfWeek.push({
             "name": days[date.getDay()],
             "date": date
@@ -37,7 +36,6 @@ export default function Calendar() {
             const q = query(followedShowsCollection, where("id_user", "==", auth?.currentUser?.uid))
             const followedShows = await getDocs(q)
             const data = followedShows.docs.map((doc) => ({...doc.data(), id: doc.id}))
-            console.log(data)
             if(data.length !== 0) {
                 for (const show of data) {
                     const showNew = await axios.get(`https://api.themoviedb.org/3/tv/${show.id_show}?api_key=${api_key}`)

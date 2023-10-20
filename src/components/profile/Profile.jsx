@@ -4,6 +4,8 @@ import { updatePassword, updateEmail, reauthenticateWithCredential, EmailAuthPro
 
 import './profile.scss'
 import '../../formStyle.scss'
+import CustomInput from "../formComponents/CustomInput";
+import CustomButton from "../formComponents/CustomButton";
 
 export default function Profile() {
 
@@ -75,20 +77,20 @@ export default function Profile() {
 
                 <h2>Modifier mon mot de passe</h2>
                 <div className="form-log-req-pro password-form">
-                    <input className="input-log-req-pro" type="password" placeholder="Mot de passe actuel" onChange={(e) => setPasswordForPwd(e.target.value)} />
-                    <input className="input-log-req-pro" type="password" placeholder="Nouveau mot de passe" onChange={(e) => setNewPasswordForPwd(e.target.value)} />
-                    <input className="input-log-req-pro" type="password" placeholder="Confirmer le nouveau mot de passe" onChange={(e) => setConfirmNewPasswordForPwd(e.target.value)} />
-
-                    <button className="submit-log-req-pro" onClick={resetPassword}>Réinitialiser le mot de passe</button>
+                    <CustomInput type={'password'} placeholder={'Mot de passe actuel'} functionToLaunch={setPasswordForPwd} />
+                    <CustomInput type={'password'} placeholder={'Nouveau mot de passe'} functionToLaunch={setNewPasswordForPwd} />
+                    <CustomInput type={'password'} placeholder={'Confirmer le nouveau mot de passe'} functionToLaunch={setConfirmNewPasswordForPwd} />
+                    
+                    <CustomButton textContent={'Réinitialiser le mot de passe'} functionToLaunch={resetPassword} />
                 </div>
 
                 <h2>Modifier mon email</h2>
 
                 <div className="form-log-req-pro email-form">
-                    <input className="input-log-req-pro" type="password" placeholder="Mot de passe" onChange={(e) => setPasswordForEmail(e.target.value)} />
-                    <input className="input-log-req-pro" type="email" placeholder="Nouvel email" onChange={(e) => setNewEmail(e.target.value)} />
-
-                    <button className="submit-log-req-pro" onClick={resetEmail}>Réinitialiser l'email</button>
+                    <CustomInput type={'password'} placeholder={'Mot de passe'} functionToLaunch={setPasswordForEmail} />
+                    <CustomInput type={'email'} placeholder={'Nouvel email'} functionToLaunch={setNewEmail} />
+                    
+                    <CustomButton textContent={"Modifier l'email"} functionToLaunch={resetEmail} />
                 </div>
             </div>
 

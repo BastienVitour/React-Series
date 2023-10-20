@@ -7,12 +7,15 @@
 
     .bell {
         cursor: pointer;
+        z-index: 98;
 
         svg {
             font-size: larger;
         }
 
         .notif-number {
+            text-align: center;
+            z-index: 99;
             font-size: small;
             position: relative;
             width: 15px;

@@ -1,0 +1,40 @@
+.navbar {
+    margin: 0 -10px;
+    background-color: #121212;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+    border-bottom: 1px solid whitesmoke;
+
+    .left-links, .right-links {
+        display: flex;
+    }
+
+    .navlink {
+
+        cursor: pointer;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        border: 1px solid whitesmoke;
+        border-bottom: none;
+        color: whitesmoke;
+        text-decoration: none;
+
+        .nav-title {
+            margin-left: 8px;
+        }
+
+    }
+
+    .navlink:hover, .navlink.active {
+        background-color: whitesmoke;
+        color: #121212;
+        transition-duration: 0.25s;
+    }
+
+    .navlink:last-of-type {
+        border-right-width: 2px;
+    }
+}
