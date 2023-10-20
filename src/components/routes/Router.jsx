@@ -20,6 +20,7 @@ export default function Router() {
             <Route path="/show/:id" element={<Show />} />
             <Route path="/" element={<Homepage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path='*' element={<Homepage />} />
         </Routes>
 
     )
